@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> pra você ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(-45deg, #ff758c, #ff7eb3, #ffb199, #ff0844);
+    background-size:400% 400%;
+    animation: bg 10s ease infinite;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.container{
+    max-width:700px;
+    margin:auto;
+    background:rgba(255,255,255,0.15);
+    padding:25px;
+    border-radius:20px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1{
+    font-size:clamp(22px,5vw,32px);
+    margin-bottom:10px;
+}
+
+.data{
+    font-weight:bold;
+    margin-bottom:8px;
+}
+
+.frase{
+    font-style:italic;
+    margin-bottom:15px;
+}
+
+#contador{
+    font-size:clamp(18px,5vw,22px);
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:10px;
+    margin-top:20px;
+}
+
+.galeria img{
+    width:100%;
+    height:130px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.galeria img:hover{
+    transform:scale(1.05);
+    cursor:pointer;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    z-index:1000;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.8);
+    animation:fadeIn 0.3s;
+}
+
+.modal-content{
+    margin:auto;
+    display:block;
+    width:90%;
+    max-width:800px;
+    padding-top:50px;
+    animation:zoomIn 0.3s;
+}
+
+.modal-content img{
+    width:100%;
+    height:auto;
+    border-radius:15px;
+}
+
+.fechar{
+    position:absolute;
+    top:20px;
+    right:40px;
+    color:#f1f1f1;
+    font-size:40px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.fechar:hover{
+    color:#ff4d6d;
+}
+
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes zoomIn{
+    from{transform:scale(0.5);}
+    to{transform:scale(1);}
+}
+
+.coracao{
+    font-size:40px;
+    animation:bater 1s infinite;
+}
+
+@keyframes bater{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+#btnMusica{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    padding:10px 15px;
+    border:none;
+    border-radius:20px;
+    background:white;
+    color:#ff4d6d;
+    font-weight:bold;
+    display:none;
+}
+
+.secao-amor{
+    margin-top:40px;
+    padding:20px;
+    background:rgba(255,255,255,0.1);
+    border-radius:15px;
+}
+
+.secao-amor h2{
+    font-size:28px;
+    margin-bottom:20px;
+    color:#ffe6f0;
+    text-shadow:2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.paragrafos-amor{
+    text-align:justify;
+    line-height:1.8;
+    font-size:16px;
+}
+
+.paragrafos-amor p{
+    margin-bottom:18px;
+    font-style:italic;
+}
+
+.paragrafos-amor p:first-letter{
+    font-size:20px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="musica" autoplay></audio>
+
+<button id="btnMusica" onclick="ativarMusica()">🎵 Ativar Música</button>
+
+<div class="container">
+    <div class="coracao">❤️</div>
+
+    <h1>Nossa História de Amor</h1>
+
+    <div class="data">💕 Desde 28 de janeiro de 2026</div>
+
+    <div class="frase">
+        “28/01/2026 — O dia que meu coração encontrou o seu.”
+    </div>
+
+    <div id="contador"></div>
+
+    <p>
+        Cada segundo ao seu lado é um presente.
+        Eu escolho você todos os dias. 💖
+    </p>
+
+    <h2 style="margin-top:20px;">Nossos Momentos 📸</h2>
+
+    <div class="galeria" id="galeria"></div>
+
+    <div class="secao-amor">
+        <h2>💕 Do Fundo do Meu Coração 💕</h2>
+        <div class="paragrafos-amor">
+            <p>
+                💕 Do Fundo do Meu Coração 💕 Você interveio em minha vida e alterou tudo. Não tenho a mínima ideia de como dizer (ou escrever) o que você é para mim. Cada minuto ao seu lado é um minuto de prazer; cada gesto seu é de um carinho que me faz sentir amado e respeitado. Meu coração disparou desde a primeira vez que você cruzou meu caminho e, desde então, não tenho conseguido fazê-lo desacelerar.
+            </p>
+            <p>
+                Eu amo o seu sorriso, aquele que aparece em seu rosto quando você faz graça para mim. Eu amo o seu olhar, que parece sempre ser pleno de amor e ternura, quando você olha para mim. Eu gosto de conversar com você sobre tudo, desde coisas importantes até a mais tola das trivialidades. Cada uma de suas conversas é um presente que guardo em meu coração.
+            </p>
+            <p>
+               Você é o meu porto seguro, minha paz, meu abrigo. Quando estou ao seu lado, não há mais problemas para mim: só existe o agora, o nosso agora. Você me faz querer ser uma pessoa melhor, mais forte, mais corajoso. Por você eu seria capaz de tudo. Eu amo o jeito que você cuida de mim, todo com amor e ternura. Amo sentir suas mãos quentes nas minhas, amei ouvi-las sussurrar as palavras de amor, quando me acalmam em uma das minhas preocupações. Eu amo tudo em você, seus defeitos e suas qualidades, pois elas fazem de você quem você é.
+            </p>
+            <p>
+                Amo a maneira como você se preocupa comigo, sempre com tanto carinho e delicadeza. Amo sentir o calor das suas mãos tocando as minhas, assim como amo ouvir a sua voz que acalma quando estou preocupado. Eu amo tudo em você, os seus defeitos bem como as suas qualidades, pois é isso que torna você o que você é.
+            </p>
+            <p>
+                Você não é apenas a minha amada!
+            </p>
+        </div>
+    </div>
+</div>
+
+<div id="modalFoto" class="modal">
+    <span class="fechar">&times;</span>
+    <div class="modal-content">
+        <img id="imagemModal" src="" alt="Foto ampliada">
+    </div>
+</div>
+
+<script>
+
+// ===== CONTADOR =====
+const dataInicio = new Date(2026, 0, 28);
+
+function atualizarContador(){
+    const agora = new Date();
+    const diferenca = agora - dataInicio;
+
+    const segundos = Math.floor(diferenca/1000);
+    const minutos = Math.floor(segundos/60);
+    const horas = Math.floor(minutos/60);
+    const dias = Math.floor(horas/24);
+
+    const anos = Math.floor(dias/365);
+    const meses = Math.floor((dias%365)/30);
+
+    document.getElementById("contador").innerHTML =
+        anos + " anos, " +
+        meses + " meses, " +
+        (dias%30) + " dias, " +
+        (horas%24) + " horas, " +
+        (minutos%60) + " minutos e " +
+        (segundos%60) + " segundos ❤️";
+}
+
+setInterval(atualizarContador,1000);
+atualizarContador();
+
+
+// ===== MÚSICA SUAVE =====
+const musica = document.getElementById("musica");
+const btn = document.getElementById("btnMusica");
+const playlist = [
+    "Pela Luz dos Olhos teus - Tom Jobim e Miúcha __ [Letra] - Akira (youtube).mp3",
+    "Ana Gabriela - No Escuro [Áudio] [x7LLXkgBmR8].mp3"
+];
+let faixaAtual = 0;
+
+function fadeInAudio() {
+    let volume = 0;
+    const intervalo = setInterval(() => {
+        if (volume < 0.5) {
+            volume += 0.01;
+            musica.volume = volume;
+        } else {
+            clearInterval(intervalo);
+        }
+    }, 200);
+}
+
+window.addEventListener("load", () => {
+    const playPromise = tocarFaixaAtual();
+    if (playPromise !== undefined) {
+        playPromise.then(() => {})
+        .catch(() => btn.style.display = "block");
+    }
+});
+
+function ativarMusica(){
+    const playPromise = musica.play();
+    if (playPromise !== undefined) {
+        playPromise
+            .then(() => {
+                fadeInAudio();
+                btn.style.display = "none";
+            })
+            .catch(() => {
+                btn.style.display = "block";
+            });
+    }
+}
+
+function tocarFaixaAtual() {
+    musica.src = playlist[faixaAtual];
+    musica.volume = 0;
+    musica.load();
+    const playPromise = musica.play();
+    if (playPromise !== undefined) {
+        playPromise.then(() => fadeInAudio());
+    }
+    return playPromise;
+}
+
+musica.addEventListener("ended", () => {
+    faixaAtual = (faixaAtual + 1) % playlist.length;
+    tocarFaixaAtual();
+});
+
+
+// ===== GALERIA DE FOTOS =====
+// 🔥 COLOQUE AQUI O NOME DAS SUAS FOTOS
+const fotos = [
+    "IMG_0254.JPG",
+    "IMG_0406.JPG",
+    "IMG_0077.JPG",
+    "IMG_0246.JPG"
+];
+
+const galeria = document.getElementById("galeria");
+
+fotos.forEach(foto => {
+    const img = document.createElement("img");
+    img.src = foto;
+    img.onclick = function(){
+        abrirModal(foto);
+    };
+    galeria.appendChild(img);
+});
+
+// ===== MODAL DE FOTOS =====
+const modal = document.getElementById("modalFoto");
+const imagemModal = document.getElementById("imagemModal");
+const fechar = document.querySelector(".fechar");
+
+function abrirModal(fotoSrc){
+    if(fotoSrc){
+        modal.style.display = "block";
+        imagemModal.src = fotoSrc;
+    }
+}
+
+function fecharModal(){
+    modal.style.display = "none";
+}
+
+fechar.onclick = fecharModal;
+
+modal.onclick = function(event){
+    if(event.target === modal){
+        fecharModal();
+    }
+};
+
+document.onkeydown = function(event){
+    if(event.key === "Escape"){
+        fecharModal();
+    }
+};
+
+// 🔥 COLOQUE AQUI O LINK DO SEU SITE
+document.addEventListener("DOMContentLoaded", function(){
+    const linkDoSite = "https://seusite.com";
+    const qrcodeImg = document.getElementById("qrcode");
+    if(qrcodeImg){
+        qrcodeImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(linkDoSite)}`;
+    }
+});
+
+</script>
+
+<h2 style="margin-top:30px;">Escaneie para acessar nosso site 💕</h2>
+<a id="linkSite" href="file:///J:/treino/pra%20voc%C3%AA.html" target="_blank" rel="noopener noreferrer" style="color:white; text-decoration:underline; display:block; margin-bottom:10px;">Acessar nosso site</a>
+<a id="qrcodeLink" href="file:///J:/treino/pra%20voc%C3%AA.html" target="_blank" rel="noopener noreferrer">
+    <img src="" id="qrcode" alt="QR Code" style="width:180px; height:180px; border-radius:12px;">
+</a>
+
+</body>
+</html>
